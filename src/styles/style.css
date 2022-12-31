@@ -1,0 +1,292 @@
+:root {
+  --font-color: #333;
+  --background-color: #eee;
+  --blue: #a3c3e7;
+}
+ 
+[data-theme='dark'] {
+  --font-color: #eee;
+  --background-color: #333;
+  --blue: #022954;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--font-color);
+  color: var(--background-color);
+}
+
+.note-app__header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 16px;
+  border-bottom: 1px solid #aaa;
+}
+
+.note-app__header h1 {
+  margin: 8px 0;
+  flex: 1;
+  color: var(--background-color);
+}
+
+
+.note-app__body {
+  max-width: 1000px;
+  margin: 16px auto;
+  padding: 12px;
+}
+
+.note-app__body h2 {
+  font-weight: normal;
+  margin: 16px 0;
+}
+
+.notes-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: minmax(min-content, max-content);
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+.notes-list__empty-message {
+  text-align: center;
+  color: #aaa;
+}
+
+.note-item {
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.note-item__content {
+  padding: 12px;
+  flex: 1;
+}
+
+.note-item__title {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-bottom: 4px;
+}
+
+.note-item__date {
+  font-size: 12px;
+  margin-bottom: 8px;
+  color: #aaa;
+}
+
+.note-item__body {
+  font-size: 14px;
+}
+
+.note-item__action {
+  display: flex;
+}
+
+.note-item__delete-button,.note-item__archive-button {
+  display: block;
+  width: 100%;
+  background-color: transparent;
+  border: 0;
+  border-top: 1px solid #aaa;
+  padding: 8px 0;
+  font-family: 'Inter', sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.note-item__delete-button {
+  border-right: 1px solid #aaa;
+  color: #ff5f52;
+}
+
+.note-item__archive-button {
+  color: #fff263;
+}
+
+.note-item__archive-button:hover {
+  color: #c49000;
+}
+
+.note-item__delete-button:hover {
+  color: #b00020;
+}
+
+@media only screen and (min-width: 500px) {
+  .notes-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  .notes-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  .notes-list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.button {
+  background-color: transparent;
+  flex: 1;
+  text-align: center;
+  text-transform: capitalize;
+  padding: 0.5em 2em;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: var(--dark);
+}
+
+.button[data-action="delete"] {
+  color: #fd5d5d;
+}
+
+.button[data-action="archive"],
+.button[data-action="unarchived"] {
+  color: #49ff00;
+}
+
+.button[data-action="delete"]:hover {
+  color: var(--dark);
+  background-color: #fd5d5d;
+}
+
+.button[data-action="archive"]:hover,
+.button[data-action="unarchived"]:hover {
+  color: var(--dark);
+  background-color: #49ff00;
+}
+
+.input {
+  border: 1px solid var(--primary);
+  background-color: transparent;
+  outline: none;
+  border-radius: 0.4rem;
+  color: var(--primary);
+  padding: 0.7rem 1rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  min-width: 340px;
+}
+
+.input::placeholder {
+  color: var(--light);
+}
+
+.input[type="search"] {
+  border: 0;
+  border-bottom: 2px solid var(--primary);
+  border-radius: 0;
+}
+
+.input[type="submit"] {
+  cursor: pointer;
+}
+
+.input[type="submit"]:hover {
+  background-color: var(--primary);
+  color: var(--dark);
+  font-weight: 700;
+}
+
+.textarea {
+  height: 10rem;
+  resize: none;
+}
+
+form {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0 15rem;
+}
+
+.heading {
+  text-align: center;
+  font-weight: 900;
+  font-size: 2.5rem;
+}
+
+.small {
+  text-align: right;
+  opacity: 0.9;
+  color: var(--light);
+}
+
+.counter {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.formbox{
+  display: block;
+}
+
+ul{
+  display:  flex;
+}
+
+ul li{
+  margin: 10px;
+  padding: 10px;
+  list-style: none;
+}
+
+ul li a{
+  color: var(--background-color);
+  text-decoration: none;
+}
+
+.titledelete{
+  display:  flex;
+  justify-content: space-between;
+}
+
+a{
+  color: var(--blue);
+  text-decoration: none;
+}
+
+h2{
+  text-align: center;
+  margin: 20px;
+}
+
+input.inputbody{
+  padding: 20px;
+}
+
+p{
+  text-align: center;
+  margin: 20px;
+}
+
+h1.detail-page__title {
+  text-align: center;
+}
+
+svg {
+  font-size: 22px;
+}
+
+button {
+  cursor: pointer;
+}
